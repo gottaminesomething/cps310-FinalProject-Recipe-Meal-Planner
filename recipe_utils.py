@@ -37,11 +37,11 @@ def filter_by_category(recipes, category):
 
 #added by me
 
-def load_favorites(filename):
+def load_favorites(filename, favorites):
 	with open(filename, encoding="utf-8") as file:
-		return json.load(file)
+		recipes = json.load(file)
 
-	obj.favoriteList.clear()
+	favorites.clear()
 
 	for recipe in recipes:
 		ingredients = []
@@ -49,7 +49,7 @@ def load_favorites(filename):
 		for item in recipe["ingredients"]:
 			ingredients.append(obj.ingredient(**item))
 
-		obj.favoriteList.append(obj.favorite(
+		favorites.append(obj.favorite(
 			recipe["name"],
 			recipe["category"],
 			recipe["servings"],
@@ -57,3 +57,4 @@ def load_favorites(filename):
 			recipe["cook_time"],
 			ingredients
 		))
+	return recipes

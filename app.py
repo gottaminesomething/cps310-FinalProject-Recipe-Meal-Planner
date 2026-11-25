@@ -2,6 +2,7 @@
 
 from recipe_utils import filter_by_category, load_config, load_recipes, search_by_name, load_favorites
 import Objects as obj
+import random
 
 def display_recipe(recipe):
 	"""Display one recipe in a readable format."""
@@ -46,7 +47,7 @@ def choose_recipe(recipes):
 
 	display_recipe(recipes[selection - 1])
 
-def favorite_recipies(add, recipes): #TODO
+def favorite_recipies(add, recipes):
 		recipe = recipes[int(add) - 1]
 		for fav in obj.favoriteList:
 			if fav.name == recipe["name"]:
@@ -79,8 +80,11 @@ def view_favorites(favorites):
 	for index, recipe in enumerate(favorites, start=1):
 		print(f"{index}. {recipe.name} ({recipe.category})")
 
-def get_random_meal():
-	pass
+def get_random_meal(recipes):
+	if not recipes:
+		return
+	getrandom = random.randrange(1,len(recipes))
+	display_recipe(recipes[getrandom - 1])
 
 
 
@@ -88,7 +92,7 @@ def main():
 	"""Run the starter Recipe & Meal Planner."""
 	config = load_config("config.json")
 	recipes = load_recipes(config["recipe_file"])
-	load_favorites(config["favorite_file"])
+	load_favorites(config["favorite_file"], obj.favoriteList)
 
 	while True:
 		print(f"\n{config['app_title']}")
@@ -99,8 +103,8 @@ def main():
 		print("4. View recipe details")
 		print("5. Add to favorites")
 		print("6. View favorites")
-		print("7. Get a Random Meal") #TODO
-		print("8. Generate Grocery list") #TODO
+		print("7. Get a Random Meal")
+		print("8. Generate Grocery list")
 		print("9. Exit")
 
 		choice = input("\nChoose an option: ").strip()
@@ -120,8 +124,8 @@ def main():
 			favorite_recipies(addFavorite, recipes)
 		elif choice == "6":
 			view_favorites(obj.favoriteList)
-		elif choice == "7":#TODO
-			get_random_meal()
+		elif choice == "7":
+			get_random_meal(recipes)
 		elif choice == "8":#TODO
 				pass    
 		elif choice == "9":
