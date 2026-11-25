@@ -1,5 +1,6 @@
 {
   "app_title": "Recipe & Meal Planner",
   "recipe_file": "recipes.json",
-  "default_servings": 4
+  "default_servings": 4,
+  "favorite_file": "Favorites.json"
 }

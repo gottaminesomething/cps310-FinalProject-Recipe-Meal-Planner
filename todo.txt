@@ -1,0 +1,13 @@
+1. Favorite Recipies
+	load --done
+	save
+	add --done
+	view --done
+
+2. random meal suggestion
+	get random meal 
+3. generate a grocery list -- later
+	mealplan?
+	or just favorites list?
+	
+	
