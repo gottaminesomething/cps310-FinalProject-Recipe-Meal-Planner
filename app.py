@@ -47,7 +47,7 @@ def choose_recipe(recipes):
 
 	display_recipe(recipes[selection - 1])
 
-def favorite_recipies(add, recipes): #TODO
+def favorite_recipies(add, recipes):
 		recipe = recipes[int(add) - 1]
 		for fav in obj.favoriteList:
 			if fav.name == recipe["name"]:
@@ -92,7 +92,7 @@ def main():
 	"""Run the starter Recipe & Meal Planner."""
 	config = load_config("config.json")
 	recipes = load_recipes(config["recipe_file"])
-	load_favorites(config["favorite_file"])
+	load_favorites(config["favorite_file"], obj.favoriteList)
 
 	while True:
 		print(f"\n{config['app_title']}")
@@ -103,8 +103,8 @@ def main():
 		print("4. View recipe details")
 		print("5. Add to favorites")
 		print("6. View favorites")
-		print("7. Get a Random Meal") #TODO
-		print("8. Generate Grocery list") #TODO
+		print("7. Get a Random Meal")
+		print("8. Generate Grocery list")
 		print("9. Exit")
 
 		choice = input("\nChoose an option: ").strip()
@@ -124,7 +124,7 @@ def main():
 			favorite_recipies(addFavorite, recipes)
 		elif choice == "6":
 			view_favorites(obj.favoriteList)
-		elif choice == "7":#TODO
+		elif choice == "7":
 			get_random_meal(recipes)
 		elif choice == "8":#TODO
 				pass    
