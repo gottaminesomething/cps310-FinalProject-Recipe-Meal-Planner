@@ -5,7 +5,7 @@
 	view --done
 
 2. random meal suggestion
-	get random meal 
+	get random meal --done
 3. generate a grocery list -- later
 	mealplan?
 	or just favorites list?

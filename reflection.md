@@ -76,7 +76,10 @@ What new tests have you added for your features?
 What important behavior do those tests verify?
 
 **Response:**
-
+I added Pytests for my recipe_util of load_favorites() two tests total
+1. check if it loads into the json just like the other load utils
+2. check if it loads into the object correctly
+they are important behavoior because if load_favorites didnt work. when i add save favorites for the final submission loading correctly loads it in both places
 ---
 
 ## 8. Bug or Mistake
@@ -105,7 +108,7 @@ Identify one part of your current code that you would improve if you had more ti
 Why would you improve it?
 
 **Response:**
-
+currently i think adding favorites to an object is redundant. if i had more time i might've done it more similarly to the other json files and work directly from the file itself. 
 ---
 
 ## 10. Remaining Plan

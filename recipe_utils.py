@@ -39,7 +39,7 @@ def filter_by_category(recipes, category):
 
 def load_favorites(filename, favorites):
 	with open(filename, encoding="utf-8") as file:
-		return json.load(file)
+		recipes = json.load(file)
 
 	favorites.clear()
 
@@ -57,13 +57,4 @@ def load_favorites(filename, favorites):
 			recipe["cook_time"],
 			ingredients
 		))
-
-		'''
-def load_list_items(inventory, filename=inventoryFile):
-	with open(filename) as f:
-		print("FILE READ")
-
-		for line in f:
-			parts = line.split("|")
-			inventory.append(io.item(parts[0],parts[1], int(parts[2])))		
-		'''
+	return recipes

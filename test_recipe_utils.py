@@ -92,10 +92,12 @@ def test_load_favorites_reads_json(tmp_path):
 			"cook_time": 10,
 			"ingredients": [],
 		}
+	
 	]
+	favoriteList = []
 	favorites_file.write_text(json.dumps(sample), encoding="utf-8")
-
-	assert load_favorites(favorites_file, sample) == sample
+	
+	assert load_favorites(favorites_file, favoriteList) == sample
 
 
 def test_load_favorites_into_object(tmp_path):
@@ -117,20 +119,11 @@ def test_load_favorites_into_object(tmp_path):
 	#Act
 	load_favorites(favorites_file, favoriteList)
 	#Assert
-	assert [str(i) for i in favoriteList ] == ["Test Recipe, Lunch, 2, 5, 10, []"]
+	assert len(favoriteList) == 1
+	assert favoriteList[0].name == "Test Recipe"
+	assert favoriteList[0].category == "Lunch"
+	assert favoriteList[0].servings == 2
+	assert favoriteList[0].preptime == 5
+	assert favoriteList[0].cooktime == 10
+	assert favoriteList[0].ingredients == []
 
-
-
-'''
-def test_load_inventory_manager_and_as_int(tmp_path):
-	# Arrange
-	inventory_file = tmp_path / "inventory.txt"
-	inventory_file.write_text("apple|fruit|10\nBananna|fruit|5")
-	inventory = []
-	
-	# Act
-	load_list_items(inventory, inventory_file)
-
-	# Assert
-	assert [str(i) for i in inventory] == ["apple, fruit, 10", "Bananna, fruit, 5"]	
-'''
