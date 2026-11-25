@@ -2,6 +2,7 @@
 
 from recipe_utils import filter_by_category, load_config, load_recipes, search_by_name, load_favorites
 import Objects as obj
+import random
 
 def display_recipe(recipe):
 	"""Display one recipe in a readable format."""
@@ -79,8 +80,11 @@ def view_favorites(favorites):
 	for index, recipe in enumerate(favorites, start=1):
 		print(f"{index}. {recipe.name} ({recipe.category})")
 
-def get_random_meal():
-	pass
+def get_random_meal(recipes):
+	if not recipes:
+		return
+	getrandom = random.randrange(1,len(recipes))
+	display_recipe(recipes[getrandom - 1])
 
 
 
@@ -121,7 +125,7 @@ def main():
 		elif choice == "6":
 			view_favorites(obj.favoriteList)
 		elif choice == "7":#TODO
-			get_random_meal()
+			get_random_meal(recipes)
 		elif choice == "8":#TODO
 				pass    
 		elif choice == "9":

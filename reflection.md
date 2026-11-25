@@ -22,7 +22,7 @@ Briefly explain what currently works.
 
 - Favorite Recipies: adding and loading both are implemented and working
     - saving still needs to be added
-- Random Meal Suggestion: 
+- Random Meal Suggestion: feature completely functions, it gets a random number and displays it.
 ---
 
 ## 3. Most Difficult Feature
@@ -64,6 +64,8 @@ Identify one commit you consider meaningful.
 What changed in that commit, and why was it useful to keep that work together?
 
 **Response:**
+Implement favorite recipes feature with loading and saving functionality
+    -the first feature of adding and viewing favorites was added as well as groundwork for my other features. it was useful to keep that work together because it made it easier to track changes, test the feature as a whole, and build upon it later when implementing other features.
 
 ---
 
@@ -84,6 +86,15 @@ Describe one bug, mistake, or unexpected behavior you encountered.
 How did you discover it, and how did you fix it?
 
 **Response:**
+in adding favorites i encountered a logic bug where duplicate items could be added resulting in
+```
+favorites
+-------
+1. Chicken Alfredo (Dinner)
+2. Chicken Alfredo (Dinner)
+
+```
+i fixed it by adding an if statement checking if the name wanting to be favorited was already in the list. if it was it wouldnt add it again and give a print statement saying it was already marked as a favorite.
 
 ---
 
